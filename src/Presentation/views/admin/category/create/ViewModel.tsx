@@ -1,10 +1,6 @@
-import {
-  useContext,
-  useState,
-} from 'react';
-
+import React, { useState, useContext } from 'react'
 import * as ImagePicker from 'expo-image-picker';
-
+import { CreateCategoryUseCase } from '../../../../../Domain/useCases/category/CreateCategory';
 import { CategoryContext } from '../../../../context/CategoryContext';
 
 const AdminCategoryCreateViewModel = () => {
@@ -38,9 +34,9 @@ const AdminCategoryCreateViewModel = () => {
             quality: 1
         });
 
-        if (!result.cancelled) {
-            onChange('image', result.uri); // file://ksdajkaskj.png
-            setFile(result);
+        if (!result.canceled) {
+            onChange('image', result.assets[0].uri); // file://ksdajkaskj.png
+            setFile(result.assets[0]);
         }
     }
     
@@ -51,9 +47,9 @@ const AdminCategoryCreateViewModel = () => {
             quality: 1
         });
 
-        if (!result.cancelled) {
-            onChange('image', result.uri);
-            setFile(result);
+        if (!result.canceled) {
+            onChange('image', result.assets[0].uri); // file://ksdajkaskj.png
+            setFile(result.assets[0]);
         }
     }
 

@@ -1,14 +1,6 @@
-import React from 'react';
-
-import {
-  Alert,
-  Modal,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-
-import { RoundedButton } from './RoundedButton';
+import React, { useState } from "react";
+import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
+import { RoundedButton } from "./RoundedButton";
 
 interface Props {
     openGallery: () => void,
@@ -31,7 +23,7 @@ export const ModalPickImage = ({ openGallery, openCamera, setModalUseState, moda
         >
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
-                <Text>Selecione uma opção</Text>
+                <Text>Selecciona una opcion</Text>
                 <View style={ styles.buttonContainer }>
                     <RoundedButton
                         onPress={ () => {
@@ -47,7 +39,7 @@ export const ModalPickImage = ({ openGallery, openCamera, setModalUseState, moda
                             openCamera()
                             setModalUseState(false)
                         }}
-                        text='Câmera'
+                        text='Camara'
                         />
                 </View>
             </View>

@@ -1,20 +1,9 @@
-import React from 'react';
-
-import {
-  Image,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-
+import React from 'react'
+import { Category } from '../../../../../Domain/entities/Category'
+import { View, StyleSheet, Image, Text, TouchableOpacity } from 'react-native';
+import { StackScreenProps, StackNavigationProp } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
-
-import { Category } from '../../../../../Domain/entities/Category';
-import {
-  CategoryStackParamList,
-} from '../../../../navigator/AdminCategoryNavigator';
+import { CategoryStackParamList } from '../../../../navigator/AdminCategoryNavigator';
 
 interface Props {
     category: Category;
@@ -26,7 +15,9 @@ export const AdminCategoryListItem = ({category, remove}: Props) => {
     const navigation = useNavigation<StackNavigationProp<CategoryStackParamList>>();
 
   return (
-    <TouchableOpacity>
+    <TouchableOpacity
+        onPress={() => navigation.navigate('AdminProductNavigator', { category:  category})}
+    >
         <View style={ styles.container }>
             <Image
                 style={ styles.image }

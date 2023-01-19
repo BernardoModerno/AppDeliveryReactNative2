@@ -1,12 +1,10 @@
-import * as React from 'react';
-
+import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-
-import {
-  MainStackNavigator,
-} from './src/Presentation/navigator/MainStackNavigator';
+import { MainStackNavigator } from './src/Presentation/navigator/MainStackNavigator';
 
 const App = () => {
+
+  
 
   return (
     <NavigationContainer>
@@ -14,7 +12,5 @@ const App = () => {
     </NavigationContainer>
   );
 };
-
-
 
 export default App;

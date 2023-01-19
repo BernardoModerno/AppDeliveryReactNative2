@@ -1,18 +1,11 @@
-import { AxiosError } from 'axios';
+import { Category } from "../../Domain/entities/Category";
+import { CategoryRepository } from "../../Domain/repositories/CategoryRepository";
+import { ApiDelivery, ApiDeliveryForImage } from "../sources/remote/api/ApiDelivery";
+import { ResponseApiDelivery } from "../sources/remote/models/ResponseApiDelivery";
 import * as ImagePicker from 'expo-image-picker';
 import mime from 'mime';
-
-import { Category } from '../../Domain/entities/Category';
-import {
-  CategoryRepository,
-} from '../../Domain/repositories/CategoryRepository';
-import {
-  ApiDelivery,
-  ApiDeliveryForImage,
-} from '../sources/remote/api/ApiDelivery';
-import {
-  ResponseApiDelivery,
-} from '../sources/remote/models/ResponseApiDelivery';
+import axios from 'axios';
+import { AxiosError } from 'axios';
 
 export class CategoryRepositoryImpl implements CategoryRepository {
 
@@ -35,6 +28,7 @@ export class CategoryRepositoryImpl implements CategoryRepository {
             data.append('image', {
                 // @ts-ignore
                 uri: file.uri,
+                // @ts-ignore
                 name: file.uri.split('/').pop(),
                 type: mime.getType(file.uri)!
             });
@@ -67,6 +61,7 @@ export class CategoryRepositoryImpl implements CategoryRepository {
             data.append('image', {
                 // @ts-ignore
                 uri: file.uri,
+                // @ts-ignore
                 name: file.uri.split('/').pop(),
                 type: mime.getType(file.uri)!
             });

@@ -1,27 +1,14 @@
-import React, {
-  useEffect,
-  useState,
-} from 'react';
-
-import {
-  ActivityIndicator,
-  Image,
-  ScrollView,
-  Text,
-  ToastAndroid,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-
-import { StackScreenProps } from '@react-navigation/stack';
-
+import React, { useEffect, useState } from 'react'
+import { Image, ActivityIndicator, View, Text, ScrollView, ToastAndroid, TouchableOpacity } from 'react-native';
 import { CustomTextInput } from '../../../components/CustomTextInput';
-import { ModalPickImage } from '../../../components/ModalPickImage';
 import { RoundedButton } from '../../../components/RoundedButton';
-import { RootStackParamList } from '../../../navigator/MainStackNavigator';
-import { MyColors } from '../../../theme/AppTheme';
-import styles from './Styles';
 import useViewModel from './ViewModel';
+import styles from './Styles';
+import { ModalPickImage } from '../../../components/ModalPickImage';
+import { StackScreenProps } from '@react-navigation/stack';
+import { MyColors } from '../../../theme/AppTheme';
+import { RootStackParamList } from '../../../navigator/MainStackNavigator';
+
 
 interface Props extends StackScreenProps<RootStackParamList, 'ProfileUpdateScreen'>{};
 
@@ -69,17 +56,17 @@ export const ProfileUpdateScreen = ({navigation, route}: Props) => {
             
           </TouchableOpacity>
 
-          <Text style={ styles.logoText }>SELECIONE UMA IMAGEM</Text>
+          <Text style={ styles.logoText }>SELECCIONA UNA IMAGEN</Text>
         </View>
 
         <View style={ styles.form }>
 
           <ScrollView>
 
-            <Text style={ styles.formText }>ATUALIZAR</Text>
+            <Text style={ styles.formText }>ACTUALIZAR</Text>
 
             <CustomTextInput 
-              placeholder='Nome'
+              placeholder='Nombres'
               keyboardType='default'
               image={ require('../../../../../assets/user.png') }
               property='name'
@@ -89,7 +76,7 @@ export const ProfileUpdateScreen = ({navigation, route}: Props) => {
 
 
             <CustomTextInput 
-              placeholder='Sobrenome'
+              placeholder='Apellidos'
               keyboardType='default'
               image={ require('../../../../../assets/my_user.png') }
               property='lastname'
@@ -99,7 +86,7 @@ export const ProfileUpdateScreen = ({navigation, route}: Props) => {
             
             
             <CustomTextInput 
-              placeholder='Telefone'
+              placeholder='Telefono'
               keyboardType='numeric'
               image={ require('../../../../../assets/phone.png') }
               property='phone'

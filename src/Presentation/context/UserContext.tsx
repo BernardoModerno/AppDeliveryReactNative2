@@ -1,19 +1,8 @@
-import React, {
-  createContext,
-  useEffect,
-  useState,
-} from 'react';
-
-import { User } from '../../Domain/entities/User';
-import {
-  GetUserLocalUseCase,
-} from '../../Domain/useCases/userLocal/GetUserLocal';
-import {
-  RemoveUserLocalUseCase,
-} from '../../Domain/useCases/userLocal/RemoveUserLocal';
-import {
-  SaveUserLocalUseCase,
-} from '../../Domain/useCases/userLocal/SaveUserLocal';
+import React, { createContext, useState, useEffect } from "react";
+import { User } from "../../Domain/entities/User";
+import { SaveUserLocalUseCase } from "../../Domain/useCases/userLocal/SaveUserLocal";
+import { GetUserLocalUseCase } from "../../Domain/useCases/userLocal/GetUserLocal";
+import { RemoveUserLocalUseCase } from "../../Domain/useCases/userLocal/RemoveUserLocal";
 
 export const userInitialState: User = {
     id:              '',

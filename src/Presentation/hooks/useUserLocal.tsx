@@ -1,12 +1,6 @@
-import {
-  useEffect,
-  useState,
-} from 'react';
-
+import React, { useEffect, useState } from 'react'
 import { User } from '../../Domain/entities/User';
-import {
-  GetUserLocalUseCase,
-} from '../../Domain/useCases/userLocal/GetUserLocal';
+import { GetUserLocalUseCase } from '../../Domain/useCases/userLocal/GetUserLocal';
 
 export const useUserLocal = () => {
 

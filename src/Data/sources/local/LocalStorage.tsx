@@ -6,7 +6,7 @@ export const LocalStorage = () => {
         try {
             await AsyncStorage.setItem(key, value);
         } catch (error) {
-            console.log('ERROR EM LOCAL STORAGE: ' + error);
+            console.log('ERROR EN LOCAL STORAGE: ' + error);
         }
     }
     
@@ -15,7 +15,7 @@ export const LocalStorage = () => {
             const item = await AsyncStorage.getItem(key);
             return item;
         } catch (error) {
-            console.log('ERROR EM LOCAL STORAGE: ' + error);
+            console.log('ERROR EN LOCAL STORAGE: ' + error);
         }
     }
 
@@ -23,7 +23,7 @@ export const LocalStorage = () => {
         try {
             await AsyncStorage.removeItem(key);
         } catch (error) {
-            console.log('ERROR EM LOCAL STORAGE: ' + error);
+            console.log('ERROR EN LOCAL STORAGE: ' + error);
         }
     }
 

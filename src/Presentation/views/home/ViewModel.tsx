@@ -1,9 +1,8 @@
-import {
-  useContext,
-  useState,
-} from 'react';
-
+import React, { useState, useEffect, useContext } from 'react'
 import { LoginAuthUseCase } from '../../../Domain/useCases/auth/LoginAuth';
+import { SaveUserLocalUseCase } from '../../../Domain/useCases/userLocal/SaveUserLocal';
+import { GetUserLocalUseCase } from '../../../Domain/useCases/userLocal/GetUserLocal';
+import { useUserLocal } from '../../hooks/useUserLocal';
 import { UserContext } from '../../context/UserContext';
 
 const HomeViewModel = () => {
@@ -14,7 +13,7 @@ const HomeViewModel = () => {
     });
     // const { user, getUserSession } = useUserLocal();
     const { user, saveUserSession } = useContext( UserContext );
-    console.log('USUARIO DE SESSÃO: ' + JSON.stringify(user));
+    console.log('USUARIO DE SESION: ' + JSON.stringify(user));
     
 
     const onChange = (property: string, value: any) => {
@@ -34,13 +33,14 @@ const HomeViewModel = () => {
         }
     }
 
+    
     const isValidForm = (): boolean => {
         if (values.email === '') {
-            setErrorMessage('Entre com seu email');
+            setErrorMessage('Ingresa el correo electronico');
             return false;
         }
         if (values.password === '') {
-            setErrorMessage('Entre com sua senha');
+            setErrorMessage('Ingresa la contraseña');
             return false;
         }
 

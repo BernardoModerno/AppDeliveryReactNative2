@@ -1,23 +1,18 @@
-import React from 'react';
-
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-import { UserProvider } from '../../../src/Presentation/context/UserContext';
-import {
-  AdminTabsNavigator,
-} from '../../../src/Presentation/navigator/AdminTabsNavigator';
-import {
-  ClientTabsNavigator,
-} from '../../../src/Presentation/navigator/ClientTabsNavigator';
-import { HomeScreen } from '../../../src/Presentation/views/home/Home';
-import {
-  ProfileUpdateScreen,
-} from '../../../src/Presentation/views/profile/update/ProfileUpdate';
-import {
-  RegisterScreen,
-} from '../../../src/Presentation/views/register/Register';
-import { RolesScreen } from '../../../src/Presentation/views/roles/Roles';
+import React from 'react'
+import { Category } from '../../Domain/entities/Category';
 import { User } from '../../Domain/entities/User';
+import { HomeScreen } from '../../../src/Presentation/views/home/Home';
+import { RegisterScreen } from '../../../src/Presentation/views/register/Register';
+import { ProfileInfoScreen } from '../../../src/Presentation/views/profile/info/ProfileInfo';
+import { RolesScreen } from '../../../src/Presentation/views/roles/Roles';
+import { AdminTabsNavigator } from '../../../src/Presentation/navigator/AdminTabsNavigator';
+import { ClientTabsNavigator } from '../../../src/Presentation/navigator/ClientTabsNavigator';
+import { ProfileUpdateScreen } from '../../../src/Presentation/views/profile/update/ProfileUpdate';
+import { UserProvider } from '../../../src/Presentation/context/UserContext';
+import { AdminCategoryCreateScreen } from '../../../src/Presentation/views/admin/category/create/CategoryCreate';
+import { AdminCategoryUpdateScreen } from '../../../src/Presentation/views/admin/category/update/CategoryUpdate';
+import { CategoryProvider } from '../../../src/Presentation/context/CategoryContext';
 
 export type RootStackParamList = {
     HomeScreen: undefined,
@@ -25,6 +20,7 @@ export type RootStackParamList = {
     RolesScreen: undefined,
     AdminTabsNavigator: undefined,
     ClientTabsNavigator: undefined,
+    DeliveryTabsNavigator: undefined,
     ProfileUpdateScreen: {user: User}
   }
 
@@ -48,7 +44,7 @@ export const MainStackNavigator = () => {
             component={RegisterScreen}
             options={{
               headerShown: true,
-              title: 'Novo usuário'
+              title: 'Nuevo usuario'
             }}  />
 
         
@@ -57,7 +53,7 @@ export const MainStackNavigator = () => {
             component={RolesScreen}
             options={{
               headerShown: true,
-              title: 'Selecione um rol'
+              title: 'Selecciona un rol'
             }}  />
 
         
@@ -76,7 +72,7 @@ export const MainStackNavigator = () => {
               component={ProfileUpdateScreen}
               options={{
                 headerShown: true,
-                title: 'Atualizar usuário'
+                title: 'Actualizar usuario'
               }}
           />
           

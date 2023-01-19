@@ -1,18 +1,9 @@
-import React from 'react';
-
-import {
-  Image,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-
 import { StackNavigationProp } from '@react-navigation/stack';
-
+import React from 'react'
+import { TouchableOpacity, View, Image, Text, StyleSheet } from 'react-native'
 import { Rol } from '../../../Domain/entities/Rol';
-import { RootStackParamList } from '../../navigator/MainStackNavigator';
 import { MyColors } from '../../theme/AppTheme';
+import { RootStackParamList } from '../../navigator/MainStackNavigator';
 
 interface Props {
     rol: Rol,
@@ -22,14 +13,22 @@ interface Props {
 }
 
 export const RolesItem = ({rol, height, width, navigation}: Props) => {
+    
   return (
     <TouchableOpacity
         onPress={ () => {
             if (rol.name == 'RESTAURANTE') {
+                console.log('SELECCIONO ADMIN');
                 navigation.replace('AdminTabsNavigator');
             }
             else if (rol.name == 'CLIENTE') {
+                console.log('SELECCIONO CLIENTE');
                 navigation.replace('ClientTabsNavigator');
+            }
+            else if (rol.name == 'REPARTIDOR') {
+                console.log('SELECCIONO REPARTIDOR');
+                
+                navigation.replace('DeliveryTabsNavigator');
             }
         }}
         style={ { ...styles.container, height: height, width: width} }>

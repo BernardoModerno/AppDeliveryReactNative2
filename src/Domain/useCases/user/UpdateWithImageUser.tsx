@@ -1,7 +1,6 @@
+import { UserRepositoryImpl } from "../../../Data/repositories/UserRepository";
+import { User } from "../../entities/User";
 import * as ImagePicker from 'expo-image-picker';
-
-import { UserRepositoryImpl } from '../../../Data/repositories/UserRepository';
-import { User } from '../../entities/User';
 
 const { updateWithImage } = new UserRepositoryImpl();
 

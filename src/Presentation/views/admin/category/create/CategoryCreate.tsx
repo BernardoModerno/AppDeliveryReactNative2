@@ -1,23 +1,9 @@
-import React, {
-  useEffect,
-  useState,
-} from 'react';
-
-import {
-  ActivityIndicator,
-  Image,
-  ToastAndroid,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-
+import React, {useState, useEffect} from 'react'
+import { View, Text, TouchableOpacity, Image, ActivityIndicator, ToastAndroid } from 'react-native';
 import { CustomTextInput } from '../../../../components/CustomTextInput';
 import { ModalPickImage } from '../../../../components/ModalPickImage';
 import { RoundedButton } from '../../../../components/RoundedButton';
-import {
-  MyColors,
-  MyStyles,
-} from '../../../../theme/AppTheme';
+import { MyColors, MyStyles } from '../../../../theme/AppTheme';
 import styles from './Styles';
 import useViewModel from './ViewModel';
 
@@ -54,7 +40,7 @@ export const AdminCategoryCreateScreen = () => {
 
         <View style={ styles.form }>
             <CustomTextInput 
-                placeholder='Nome da categoria'
+                placeholder='Nombre de la categoria'
                 image={ require('../../../../../../assets/categories.png')}
                 keyboardType='default'
                 property='name'
@@ -62,7 +48,7 @@ export const AdminCategoryCreateScreen = () => {
                 onChangeText={ onChange }
             />
             <CustomTextInput 
-                placeholder='Descrição'
+                placeholder='Descripcion'
                 image={ require('../../../../../../assets/description.png')}
                 keyboardType='default'
                 property='description'
@@ -73,7 +59,7 @@ export const AdminCategoryCreateScreen = () => {
 
         <View style={styles.buttonContainer}>
             <RoundedButton 
-                text='CRIAR CATEGORIA'
+                text='CREAR CATEGORIA'
                 onPress={() => createCategory()}
             />
         </View>

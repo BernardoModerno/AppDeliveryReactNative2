@@ -1,11 +1,5 @@
-import React, { useEffect } from 'react';
-
-import {
-  FlatList,
-  ToastAndroid,
-  View,
-} from 'react-native';
-
+import React, { useEffect } from 'react'
+import { FlatList, Text, View, ToastAndroid } from 'react-native';
 import { AdminCategoryListItem } from './Item';
 import useViewModel from './ViewModel';
 

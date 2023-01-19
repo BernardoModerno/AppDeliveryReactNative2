@@ -1,34 +1,31 @@
-import React, { useEffect } from 'react';
-
-import {
-  Image,
-  Text,
-  ToastAndroid,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-
-import { StackScreenProps } from '@react-navigation/stack';
-
-import { CustomTextInput } from '../../components/CustomTextInput';
+import React, { useState, useEffect } from 'react'
+import { useNavigation } from '@react-navigation/native'
+import { Image, View, Text, TextInput, ToastAndroid, StyleSheet, TouchableOpacity } from 'react-native';
 import { RoundedButton } from '../../components/RoundedButton';
-import { RootStackParamList } from '../../navigator/MainStackNavigator';
-import styles from './Styles';
+import { StackNavigationProp, StackScreenProps } from '@react-navigation/stack'
 import useViewModel from './ViewModel';
+import styles from './Styles';
+import { CustomTextInput } from '../../components/CustomTextInput';
+import { RootStackParamList } from '../../navigator/MainStackNavigator';
+import * as Notifications from 'expo-notifications';
+
+
+
+
 
 interface Props extends StackScreenProps<RootStackParamList, 'HomeScreen'>{};
 
 export const HomeScreen = ({navigation, route}: Props) => {
 
-    const { email, password, errorMessage, onChange, login, user } = useViewModel();
-    
+    const { email, password, errorMessage, onChange, login, user, } = useViewModel();
+
     useEffect(() => {
         if (errorMessage !== '') {
             ToastAndroid.show(errorMessage, ToastAndroid.LONG);
         }
     }, [errorMessage])
 
-    useEffect(() => {      
+    useEffect(() => {
         if (user?.id !== null && user?.id !== undefined && user?.id !== '') {
             if (user.roles?.length! > 1) {
                 navigation.replace('RolesScreen');
@@ -58,11 +55,11 @@ export const HomeScreen = ({navigation, route}: Props) => {
 
         <View style={ styles.form }>
 
-            <Text style={ styles.formText }>ENTRAR:</Text>
+            <Text style={ styles.formText }>INGRESAR</Text>
             
             <CustomTextInput 
                 image={ require('../../../../assets/email.png') }
-                placeholder='Email'
+                placeholder='Correo electronico'
                 keyboardType='email-address'
                 property='email'
                 onChangeText={ onChange }
@@ -71,7 +68,7 @@ export const HomeScreen = ({navigation, route}: Props) => {
         
             <CustomTextInput 
                 image={ require('../../../../assets/password.png') }
-                placeholder='Senha'
+                placeholder='Contraseña'
                 keyboardType='default'
                 property='password'
                 onChangeText={ onChange }
@@ -86,10 +83,10 @@ export const HomeScreen = ({navigation, route}: Props) => {
             </View>
 
             <View style={ styles.formRegister }>
-                <Text>Não tem conta?</Text>
+                <Text>No tienes cuenta?</Text>
                 
                 <TouchableOpacity onPress={ () => navigation.navigate('RegisterScreen') }>
-                    <Text style={ styles.formRegisterText }>Registrar-se</Text>
+                    <Text style={ styles.formRegisterText }>Registrate</Text>
                 </TouchableOpacity>
                 
             </View>

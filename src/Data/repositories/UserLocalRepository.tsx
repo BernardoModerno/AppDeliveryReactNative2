@@ -1,7 +1,5 @@
 import { User } from '../../Domain/entities/User';
-import {
-  UserLocalRepository,
-} from '../../Domain/repositories/UserLocalRepository';
+import { UserLocalRepository } from '../../Domain/repositories/UserLocalRepository';
 import { LocalStorage } from '../sources/local/LocalStorage';
 
 export class UserLocalRepositoryImpl implements UserLocalRepository {

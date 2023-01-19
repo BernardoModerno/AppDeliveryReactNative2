@@ -1,30 +1,13 @@
-import {
-  createContext,
-  useEffect,
-  useState,
-} from 'react';
-
+import { createContext, useState, useEffect } from 'react';
+import { Category } from "../../Domain/entities/Category";
 import * as ImagePicker from 'expo-image-picker';
+import { ResponseApiDelivery } from "../../Data/sources/remote/models/ResponseApiDelivery";
+import { GetAllCategoryUseCase } from '../../Domain/useCases/category/GetAllCategory';
+import { CreateCategoryUseCase } from '../../Domain/useCases/category/CreateCategory';
+import { UpdateCategoryUseCase } from '../../Domain/useCases/category/UpdateCategory';
+import { UpdateWithImageCategoryUseCase } from '../../Domain/useCases/category/UpdateWithImageCategory';
+import { DeleteCategoryUseCase } from '../../Domain/useCases/category/DeleteCategory';
 
-import {
-  ResponseApiDelivery,
-} from '../../Data/sources/remote/models/ResponseApiDelivery';
-import { Category } from '../../Domain/entities/Category';
-import {
-  CreateCategoryUseCase,
-} from '../../Domain/useCases/category/CreateCategory';
-import {
-  DeleteCategoryUseCase,
-} from '../../Domain/useCases/category/DeleteCategory';
-import {
-  GetAllCategoryUseCase,
-} from '../../Domain/useCases/category/GetAllCategory';
-import {
-  UpdateCategoryUseCase,
-} from '../../Domain/useCases/category/UpdateCategory';
-import {
-  UpdateWithImageCategoryUseCase,
-} from '../../Domain/useCases/category/UpdateWithImageCategory';
 
 export interface CategoryContextProps {
     categories: Category[],

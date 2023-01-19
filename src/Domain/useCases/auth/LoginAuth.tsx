@@ -1,4 +1,4 @@
-import { AuthRepositoryImpl } from '../../../Data/repositories/AuthRepository';
+import { AuthRepositoryImpl } from "../../../Data/repositories/AuthRepository";
 
 const { login } = new AuthRepositoryImpl();
 

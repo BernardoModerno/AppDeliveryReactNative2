@@ -1,12 +1,5 @@
-import React from 'react';
-
-import {
-  Image,
-  KeyboardType,
-  StyleSheet,
-  TextInput,
-  View,
-} from 'react-native';
+import React from 'react'
+import { View, Image, TextInput, StyleSheet, KeyboardType  } from 'react-native'
 
 interface Props {
     image: any,
@@ -15,6 +8,7 @@ interface Props {
     keyboardType: KeyboardType,
     secureTextEntry?: boolean,
     property: string,
+    editable?: boolean,
     onChangeText: (property: string, value: any) => void
 }
 
@@ -25,6 +19,7 @@ export const CustomTextInput = ({
     keyboardType,
     secureTextEntry = false,
     property,
+    editable = true,
     onChangeText
 
 }: Props) => {
@@ -41,6 +36,7 @@ export const CustomTextInput = ({
             value={ value }
             onChangeText={ text => onChangeText(property, text) }
             secureTextEntry={ secureTextEntry } 
+            editable={ editable }
         />
     </View>
   )

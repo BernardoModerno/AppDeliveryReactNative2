@@ -1,14 +1,14 @@
 import React from 'react';
 
 import {
-  Text,
-  View,
+    Text,
+    View,
 } from 'react-native';
 
 export const ClientOrderListScreen = () => {
-  return (
-    <View>
-        <Text>ClientOrderListScreen</Text>
-    </View>
-  )
+    return (
+        <View>
+            <Text>ClientOrderListScreen</Text>
+        </View>
+    )
 }

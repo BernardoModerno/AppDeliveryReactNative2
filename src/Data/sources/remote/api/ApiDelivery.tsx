@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 import { User } from '../../../../Domain/entities/User';
 import { LocalStorage } from '../../local/LocalStorage';
 
@@ -41,4 +40,4 @@ ApiDeliveryForImage.interceptors.request.use(
     }
 );
 
-export { ApiDelivery, ApiDeliveryForImage };
+export { ApiDelivery, ApiDeliveryForImage }

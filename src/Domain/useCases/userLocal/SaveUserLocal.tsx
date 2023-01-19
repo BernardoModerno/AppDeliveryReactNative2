@@ -1,7 +1,5 @@
-import {
-  UserLocalRepositoryImpl,
-} from '../../../Data/repositories/UserLocalRepository';
-import { User } from '../../entities/User';
+import { UserLocalRepositoryImpl } from "../../../Data/repositories/UserLocalRepository";
+import { User } from "../../entities/User";
 
 const { save } = new UserLocalRepositoryImpl();
 

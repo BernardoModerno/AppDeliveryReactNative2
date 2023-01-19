@@ -1,20 +1,13 @@
-import {
-  useContext,
-  useState,
-} from 'react';
-
+import React, { useState, useContext } from 'react';
+import { ApiDelivery } from '../../../../Data/sources/remote/api/ApiDelivery';
 import * as ImagePicker from 'expo-image-picker';
-
-import {
-  ResponseApiDelivery,
-} from '../../../../Data/sources/remote/models/ResponseApiDelivery';
-import { User } from '../../../../Domain/entities/User';
-import { UpdateUserUseCase } from '../../../../Domain/useCases/user/UpdateUser';
-import {
-  UpdateWithImageUserUseCase,
-} from '../../../../Domain/useCases/user/UpdateWithImageUser';
-import { UserContext } from '../../../context/UserContext';
+import { SaveUserLocalUseCase } from '../../../../Domain/useCases/userLocal/SaveUserLocal';
 import { useUserLocal } from '../../../hooks/useUserLocal';
+import { UpdateUserUseCase } from '../../../../Domain/useCases/user/UpdateUser';
+import { UpdateWithImageUserUseCase } from '../../../../Domain/useCases/user/UpdateWithImageUser';
+import { User } from '../../../../Domain/entities/User';
+import { ResponseApiDelivery } from '../../../../Data/sources/remote/models/ResponseApiDelivery';
+import { UserContext } from '../../../context/UserContext';
 
 const ProfileUpdateViewModel = (user: User) => {
 
@@ -33,9 +26,9 @@ const ProfileUpdateViewModel = (user: User) => {
             quality: 1
         });
 
-        if (!result.cancelled) {
-            onChange('image', result.uri); // file://ksdajkaskj.png
-            setFile(result);
+        if (!result.canceled) {
+            onChange('image', result.assets[0].uri); // file://ksdajkaskj.png
+            setFile(result.assets[0]);
         }
     }
     
@@ -46,9 +39,9 @@ const ProfileUpdateViewModel = (user: User) => {
             quality: 1
         });
 
-        if (!result.cancelled) {
-            onChange('image', result.uri);
-            setFile(result);
+        if (!result.canceled) {
+            onChange('image', result.assets[0].uri); // file://ksdajkaskj.png
+            setFile(result.assets[0]);
         }
     }
 
@@ -87,15 +80,15 @@ const ProfileUpdateViewModel = (user: User) => {
 
     const isValidForm = (): boolean => {
         if (values.name === '') {
-            setErrorMessage('Entre com seu nome');
+            setErrorMessage('Ingresa tu nombre');
             return false;
         }
         if (values.lastname === '') {
-            setErrorMessage('Entre com seu sobrenome');
+            setErrorMessage('Ingresa tu apellido');
             return false;
         }
         if (values.phone === '') {
-            setErrorMessage('Entre com seu telefone');
+            setErrorMessage('Ingresa tu telefono');
             return false;
         }
         

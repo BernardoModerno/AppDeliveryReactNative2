@@ -1,16 +1,10 @@
-import { AxiosError } from 'axios';
-import * as ImagePicker from 'expo-image-picker';
+import { AxiosError } from "axios";
+import { User } from "../../Domain/entities/User";
+import { AuthRepository } from "../../Domain/repositories/AuthRepository";
+import { ApiDelivery, ApiDeliveryForImage } from "../sources/remote/api/ApiDelivery";
+import { ResponseApiDelivery } from "../sources/remote/models/ResponseApiDelivery";
 import mime from 'mime';
-
-import { User } from '../../Domain/entities/User';
-import { AuthRepository } from '../../Domain/repositories/AuthRepository';
-import {
-  ApiDelivery,
-  ApiDeliveryForImage,
-} from '../sources/remote/api/ApiDelivery';
-import {
-  ResponseApiDelivery,
-} from '../sources/remote/models/ResponseApiDelivery';
+import * as ImagePicker from 'expo-image-picker';
 
 export class AuthRepositoryImpl implements AuthRepository {
 
@@ -35,6 +29,7 @@ export class AuthRepositoryImpl implements AuthRepository {
             data.append('image', {
                 // @ts-ignore
                 uri: file.uri,
+                // @ts-ignore
                 name: file.uri.split('/').pop(),
                 type: mime.getType(file.uri)!
             });

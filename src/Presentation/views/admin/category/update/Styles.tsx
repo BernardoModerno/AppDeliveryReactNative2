@@ -1,4 +1,5 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
+import { AdminCategoryUpdateScreen } from './CategoryUpdate';
 
 const AdminCategoryUpdateStyles = StyleSheet.create({
     container: {

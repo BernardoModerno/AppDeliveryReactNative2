@@ -1,14 +1,9 @@
-import {
-  useContext,
-  useState,
-} from 'react';
-
+import React, { useState, useContext } from 'react'
 import * as ImagePicker from 'expo-image-picker';
-
-import {
-  ResponseApiDelivery,
-} from '../../../../../Data/sources/remote/models/ResponseApiDelivery';
+import { UpdateCategoryUseCase } from '../../../../../Domain/useCases/category/UpdateCategory';
+import { UpdateWithImageCategoryUseCase } from '../../../../../Domain/useCases/category/UpdateWithImageCategory';
 import { Category } from '../../../../../Domain/entities/Category';
+import { ResponseApiDelivery } from '../../../../../Data/sources/remote/models/ResponseApiDelivery';
 import { CategoryContext } from '../../../../context/CategoryContext';
 
 const AdminCategoryUpdateViewModel = (category: Category) => {
@@ -26,10 +21,10 @@ const AdminCategoryUpdateViewModel = (category: Category) => {
     const updateCategory = async () => {
         setLoading(true);
         let response = {} as ResponseApiDelivery;
-        if (values.image?.includes('https://')) { // ATUALIZAR SEM IMAGEM
+        if (values.image?.includes('https://')) { // ACTUALIZAR SIN IMAGEN
             response = await update(values);
         }
-        else { // ATUALIZAR COM IMAGEM
+        else { // ACTUALIZAR CON IMAGEN
             response = await updateWithImage(values, file!);
         }
         setLoading(false);
@@ -43,9 +38,9 @@ const AdminCategoryUpdateViewModel = (category: Category) => {
             quality: 1
         });
 
-        if (!result.cancelled) {
-            onChange('image', result.uri); // file://ksdajkaskj.png
-            setFile(result);
+        if (!result.canceled) {
+            onChange('image', result.assets[0].uri); // file://ksdajkaskj.png
+            setFile(result.assets[0]);
         }
     }
     
@@ -56,9 +51,9 @@ const AdminCategoryUpdateViewModel = (category: Category) => {
             quality: 1
         });
 
-        if (!result.cancelled) {
-            onChange('image', result.uri);
-            setFile(result);
+        if (!result.canceled) {
+            onChange('image', result.assets[0].uri); // file://ksdajkaskj.png
+            setFile(result.assets[0]);
         }
     }
 

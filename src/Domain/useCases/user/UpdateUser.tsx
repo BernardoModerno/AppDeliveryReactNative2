@@ -1,5 +1,5 @@
-import { UserRepositoryImpl } from '../../../Data/repositories/UserRepository';
-import { User } from '../../entities/User';
+import { UserRepositoryImpl } from "../../../Data/repositories/UserRepository";
+import { User } from "../../entities/User";
 
 const { update } = new UserRepositoryImpl();
 

@@ -1,7 +1,6 @@
+import { AuthRepositoryImpl } from "../../../Data/repositories/AuthRepository";
+import { User } from "../../entities/User";
 import * as ImagePicker from 'expo-image-picker';
-
-import { AuthRepositoryImpl } from '../../../Data/repositories/AuthRepository';
-import { User } from '../../entities/User';
 
 const { registerWithImage } = new AuthRepositoryImpl();
 

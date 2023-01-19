@@ -1,19 +1,12 @@
-import React, { useEffect } from 'react';
-
-import {
-  Image,
-  Pressable,
-  Text,
-  View,
-} from 'react-native';
-
-import { useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
-
-import { RoundedButton } from '../../../components/RoundedButton';
-import { RootStackParamList } from '../../../navigator/MainStackNavigator';
-import styles from './Styles';
+import { StackScreenProps, StackNavigationProp } from '@react-navigation/stack';
+import React, { useEffect } from 'react'
+import { View, Text, Button, Image, Pressable } from 'react-native'
 import useViewModel from './ViewModel';
+import styles from './Styles';
+import { useNavigation } from '@react-navigation/native';
+import { RoundedButton } from '../../../components/RoundedButton';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { RootStackParamList } from '../../../navigator/MainStackNavigator';
 
 export const ProfileInfoScreen = () => {
 
@@ -45,6 +38,15 @@ export const ProfileInfoScreen = () => {
                 style={ styles.logoutImage }
             />
         </Pressable>
+        
+        <Pressable 
+          style={ styles.change }
+          onPress={() => navigation.replace('RolesScreen')}>
+          <Image
+                source={ require('../../../../../assets/exchange.png') } 
+                style={ styles.logoutImage }
+            />
+        </Pressable>
        
         <View style={ styles.logoContainer }>
             { 
@@ -66,7 +68,7 @@ export const ProfileInfoScreen = () => {
               />
               <View style={ styles.formContent }>
                 <Text>{ user?.name } {user?.lastname}</Text>
-                <Text style={ styles.formTextDescription }>Nome do usuário</Text>
+                <Text style={ styles.formTextDescription }>Nombre del usuario</Text>
               </View>
             </View>
             
@@ -77,7 +79,7 @@ export const ProfileInfoScreen = () => {
               />
               <View style={ styles.formContent }>
                 <Text>{ user?.email }</Text>
-                <Text style={ styles.formTextDescription }>Email</Text>
+                <Text style={ styles.formTextDescription }>Correo electronico</Text>
               </View>
             </View>
 
@@ -88,7 +90,7 @@ export const ProfileInfoScreen = () => {
               />
               <View style={ styles.formContent }>
                 <Text>{ user?.phone }</Text>
-                <Text style={ styles.formTextDescription }>Telefone</Text>
+                <Text style={ styles.formTextDescription }>Telefono</Text>
               </View>
             </View>
 
@@ -96,7 +98,7 @@ export const ProfileInfoScreen = () => {
               onPress={() => {
                 navigation.navigate('ProfileUpdateScreen', { user: user! })
               }}
-              text='ATUALIZAR INFORMAÇÃO' />
+              text='ACTUALIZAR INFORMACION' />
 
         </View>
 

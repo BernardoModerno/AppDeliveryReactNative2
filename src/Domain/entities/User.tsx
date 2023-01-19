@@ -1,4 +1,4 @@
-import { Rol } from './Rol';
+import { Rol } from "./Rol";
 
 export interface User {
     id?:             string;
@@ -10,5 +10,6 @@ export interface User {
     confirmPassword: string;
     image?:          string;
     session_token?:  string;
+    notification_token?:  string;
     roles?:          Rol[];
 }

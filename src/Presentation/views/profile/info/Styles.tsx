@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 const ProfileInfoStyles = StyleSheet.create({
     container: {
@@ -69,6 +69,12 @@ const ProfileInfoStyles = StyleSheet.create({
         width: 40,
         height: 40,
     },
+    change: {
+        position: 'absolute',
+        alignSelf: 'center',
+        top: 75,
+        right: 15,
+    }
 
 });
 
